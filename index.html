@@ -12,17 +12,16 @@
         }
         .container { width: 100%; max-width: 400px; text-align: center; }
         
-        /* Player Box */
         .player-box { background: rgba(0,0,0,0.1); padding: 15px; border-radius: 12px; margin-bottom: 20px; }
         .progress-line { width: 100%; height: 6px; background: rgba(0,0,0,0.2); border-radius: 3px; margin-bottom: 15px; }
         .progress-fill { width: 33%; height: 100%; background: #4e342e; border-radius: 3px; transition: 0.5s; }
         button { background: #4e342e; color: white; border: none; padding: 10px 20px; border-radius: 20px; font-weight: bold; cursor: pointer; }
 
-        h1 { font-style: italic; color: #4e342e; font-size: 1.6rem; margin-bottom: 10px; }
-        #message { color: #4e342e; line-height: 1.6; margin-bottom: 20px; min-height: 80px; }
+        h1 { font-style: italic; color: #4e342e; font-size: 1.6rem; margin-bottom: 20px; }
         
-        /* Image Box */
+        /* Binilugan na container */
         .img-container { background: #dcd0c1; padding: 15px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        #message-in-box { font-size: 0.9rem; color: #4e342e; margin-bottom: 10px; font-style: italic; }
         img { width: 100%; height: 300px; object-fit: cover; border-radius: 15px; }
     </style>
 </head>
@@ -34,19 +33,31 @@
         <button id="nextBtn">▶ Play / Next</button>
     </div>
 
-    <h1 id="title">Cozette—my love</h1>
-    <div id="message">You turned every ephemeral moment we share into something that stays forever—your benevolent heart makes even the seconds feel like the sweetest, most lasting of my life.</div>
+    <h1 id="title">MY LOVE ONE, IVLUEN</h1>
     
     <div class="img-container">
+        <div id="message-in-box">You have the most benevolent heart. even you‘re super tired. you still choose to be benevolent</div>
         <img id="img" src="img1.jpg" alt="Photo">
     </div>
 </div>
 
 <script>
     const slides = [
-        { title: "Cozette—my love", text: "You turned every ephemeral moment we share into something that stays forever—your benevolent heart makes even the seconds feel like the sweetest, most lasting of my life.", img: "img1.jpg", bg: "#d2b48c" },
-        { title: "MY FOREVER LOVE", text: "Love wouldn’t be easy if we weren’t ready for this moment. You inspire me in so many ways just seeing you around I feel alive. My heart is happy, and you’re the reason. You’re indelible. As long you love me this heart is yours forever.", img: "img2.jpg", bg: "#dcc7aa" },
-        { title: "THE LAST PIECE OF MY LIFE", text: "May I court you, again. Cozette?", img: "img3.jpg", bg: "#e6d7c3" }
+        { 
+            title: "MY LOVE ONE, IVLUEN", 
+            text: "You have the most benevolent heart. even you‘re super tired. you still choose to be benevolent", 
+            img: "img1.jpg", bg: "#d2b48c" 
+        },
+        { 
+            title: "MY FOREVER LOVE", 
+            text: "even though i’m lethargic and lazy, one chat with you is all I need to wake up.", 
+            img: "img2.jpg", bg: "#dcc7aa" 
+        },
+        { 
+            title: "THE LAST PIECE OF MY LIFE", 
+            text: "our love is indelible, carved into every day I wake up thinking of you", 
+            img: "img3.jpg", bg: "#e6d7c3" 
+        }
     ];
     
     let i = 0;
@@ -55,11 +66,11 @@
     btn.addEventListener('click', () => {
         i = (i + 1) % slides.length;
         document.getElementById('title').innerText = slides[i].title;
-        document.getElementById('message').innerText = slides[i].text;
+        document.getElementById('message-in-box').innerText = slides[i].text;
         document.getElementById('img').src = slides[i].img;
         document.getElementById('bar').style.width = ((i + 1) * 33) + "%";
         document.getElementById('bg').style.backgroundColor = slides[i].bg;
     });
 </script>
 </body>
-    </html>
+</html>
