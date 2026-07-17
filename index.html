@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For Cozette</title>
+    <style>
+        body { 
+            background-color: #d2b48c; 
+            font-family: 'Georgia', serif; 
+            display: flex; justify-content: center; align-items: center; 
+            min-height: 100vh; margin: 0; color: #4e342e; 
+            transition: background-color 1s ease;
+        }
+        .card { width: 90%; max-width: 400px; text-align: center; }
+        
+        /* Music Player Style */
+        .player { margin-bottom: 20px; background: rgba(255,255,255,0.2); padding: 15px; border-radius: 10px; }
+        .progress-bar { width: 100%; height: 5px; background: #a1887f; border-radius: 5px; margin: 10px 0; }
+        .progress { width: 33%; height: 100%; background: #4e342e; transition: 0.5s; }
+        button { background: #4e342e; color: white; border: none; padding: 8px 25px; cursor: pointer; border-radius: 20px; font-weight: bold; }
+
+        h1 { font-style: italic; font-size: 1.6rem; margin-bottom: 10px; }
+        #message { font-size: 1rem; margin-bottom: 20px; min-height: 100px; line-height: 1.5; }
+        
+        /* Image Style */
+        img { width: 100%; height: 350px; object-fit: cover; border-radius: 15px; box-shadow: 0 8px 15px rgba(0,0,0,0.2); }
+    </style>
+</head>
+<body id="bg">
+
+<div class="card">
+    <!-- Music Player sa Tuktok -->
+    <div class="player">
+        <div class="progress-bar"><div class="progress" id="bar"></div></div>
+        <button onclick="nextSlide()">▶ Play / Next</button>
+    </div>
+
+    <h1 id="title">Cozette—my love</h1>
+    <div id="message">You turned every ephemeral moment we share into something that stays forever—your benevolent heart makes even the seconds feel like the sweetest, most lasting of my life.</div>
+    
+    <!-- Dito lalabas ang images -->
+    <img id="img" src="img1.jpg" alt="Photo">
+</div>
+
+<script>
+    const slides = [
+        { title: "Cozette—my love" img: "img1.jpg", bg: "#d2b48c" },
+        { title: "MY FOREVER LOVE" img: "img2.jpg", bg: "#c4a484" },
+        { title: "THE LAST PIECE OF MY LIFE" img: "img3.jpg", bg: "#b89778" }
+    ];
+    
+    let i = 0;
+    function nextSlide() {
+        i = (i + 1) % slides.length;
+        document.getElementById('title').innerText = slides[i].title;
+        document.getElementById('message').innerText = slides[i].text;
+        document.getElementById('img').src = slides[i].img;
+        document.getElementById('bar').style.width = (i + 1) * 33 + "%";
+        document.getElementById('bg').style.backgroundColor = slides[i].bg;
+    }
+</script>
+</body>
+</html>
