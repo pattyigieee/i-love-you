@@ -5,23 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Cozette</title>
     <style>
-        body { 
-            margin: 0; padding: 20px; font-family: 'Georgia', serif;
-            display: flex; justify-content: center; align-items: center; min-height: 100vh;
-            transition: background-color 0.8s ease;
-        }
+        body { margin: 0; padding: 20px; font-family: 'Georgia', serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; transition: background-color 0.8s ease; }
         .container { width: 100%; max-width: 400px; text-align: center; }
         
+        /* Player Box */
         .player-box { background: rgba(0,0,0,0.1); padding: 15px; border-radius: 12px; margin-bottom: 20px; }
-        .progress-line { width: 100%; height: 6px; background: rgba(0,0,0,0.2); border-radius: 3px; margin-bottom: 15px; }
+        .progress-line { width: 100%; height: 6px; background: rgba(0,0,0,0.2); border-radius: 3px; margin-bottom: 10px; }
         .progress-fill { width: 33%; height: 100%; background: #4e342e; border-radius: 3px; transition: 0.5s; }
-        button { background: #4e342e; color: white; border: none; padding: 10px 20px; border-radius: 20px; font-weight: bold; cursor: pointer; }
+        .controls { display: flex; align-items: center; gap: 10px; }
+        button { background: #4e342e; color: white; border: none; padding: 8px 15px; border-radius: 20px; font-weight: bold; cursor: pointer; flex-shrink: 0; }
+        #long-text { font-size: 0.75rem; color: #4e342e; text-align: left; line-height: 1.3; }
 
         h1 { font-style: italic; color: #4e342e; font-size: 1.6rem; margin-bottom: 20px; }
         
-        /* Binilugan na container */
         .img-container { background: #dcd0c1; padding: 15px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        #message-in-box { font-size: 0.9rem; color: #4e342e; margin-bottom: 10px; font-style: italic; }
+        #message-top { font-size: 1.1rem; color: #4e342e; margin-bottom: 15px; font-style: italic; font-weight: bold; }
         img { width: 100%; height: 300px; object-fit: cover; border-radius: 15px; }
     </style>
 </head>
@@ -30,11 +28,53 @@
 <div class="container">
     <div class="player-box">
         <div class="progress-line"><div class="progress-fill" id="bar"></div></div>
-        <button id="nextBtn">▶ Play / Next</button>
+        <div class="controls">
+            <button id="nextBtn">▶ Next</button>
+            <div id="long-text">You turned every ephemeral moment we share into something that stays forever—your benevolent heart makes even the seconds feel like the sweetest, most lasting of my life.</div>
+        </div>
     </div>
 
     <h1 id="title">MY LOVE ONE, IVLUEN</h1>
     
+    <div class="img-container">
+        <div id="message-top">You have the most benevolent heart. even you‘re super tired. you still choose to be benevolent</div>
+        <img id="img" src="img1.jpg" alt="Photo">
+    </div>
+</div>
+
+<script>
+    const slides = [
+        { 
+            title: "MY LOVE ONE, IVLUEN", 
+            text: "You have the most benevolent heart. even you‘re super tired. you still choose to be benevolent", 
+            img: "img1.jpg", bg: "#d2b48c" 
+        },
+        { 
+            title: "MY FOREVER LOVE", 
+            text: "even though i’m lethargic and lazy, one chat with you is all I need to wake up.", 
+            img: "img2.jpg", bg: "#dcc7aa" 
+        },
+        { 
+            title: "THE LAST PIECE OF MY LIFE", 
+            text: "our love is indelible, carved into every day I wake up thinking of you", 
+            img: "img3.jpg", bg: "#e6d7c3" 
+        }
+    ];
+    
+    let i = 0;
+    const btn = document.getElementById('nextBtn');
+    
+    btn.addEventListener('click', () => {
+        i = (i + 1) % slides.length;
+        document.getElementById('title').innerText = slides[i].title;
+        document.getElementById('message-top').innerText = slides[i].text;
+        document.getElementById('img').src = slides[i].img;
+        document.getElementById('bar').style.width = ((i + 1) * 33) + "%";
+        document.getElementById('bg').style.backgroundColor = slides[i].bg;
+    });
+</script>
+</body>
+</html>    
     <div class="img-container">
         <div id="message-in-box">You have the most benevolent heart. even you‘re super tired. you still choose to be benevolent</div>
         <img id="img" src="img1.jpg" alt="Photo">
