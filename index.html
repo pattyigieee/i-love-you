@@ -8,15 +8,17 @@
         body { margin: 0; padding: 15px; font-family: 'Georgia', serif; background-color: #d2b48c; transition: background-color 0.8s ease; display: flex; justify-content: center; }
         .container { width: 100%; max-width: 400px; text-align: center; }
         
+        /* Title sa pinakataas */
+        h1 { font-style: italic; color: #4e342e; font-size: 1.5rem; margin-bottom: 10px; }
+        
+        /* Player Box */
         .player-box { background: rgba(255,255,255,0.3); padding: 15px; border-radius: 12px; margin-bottom: 20px; }
         .progress-line { width: 100%; height: 6px; background: rgba(0,0,0,0.1); border-radius: 3px; margin-bottom: 10px; }
         .progress-fill { width: 33%; height: 6px; background: #4e342e; border-radius: 3px; transition: 0.5s; }
-        
         button { background: #4e342e; color: white; border: none; padding: 10px 20px; border-radius: 20px; font-weight: bold; cursor: pointer; margin-bottom: 10px; }
         #long-text { font-size: 0.8rem; color: #4e342e; line-height: 1.4; padding: 0 10px; }
 
-        h1 { font-style: italic; color: #4e342e; font-size: 1.5rem; margin: 10px 0; }
-        
+        /* Image Container */
         .img-container { background: #dcd0c1; padding: 15px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         #message-top { font-size: 1rem; color: #4e342e; margin-bottom: 15px; font-style: italic; font-weight: bold; }
         img { width: 100%; height: 300px; object-fit: cover; border-radius: 15px; }
@@ -25,13 +27,14 @@
 <body id="bg">
 
 <div class="container">
+    <!-- Title nasa pinakataas -->
+    <h1 id="title">MY LOVE ONE, IVLUEN</h1>
+
     <div class="player-box">
         <div class="progress-line"><div class="progress-fill" id="bar"></div></div>
         <button id="nextBtn">▶ Next</button>
         <div id="long-text">You turned every ephemeral moment we share into something that stays forever—your benevolent heart makes even the seconds feel like the sweetest, most lasting of my life.</div>
     </div>
-
-    <h1 id="title">MY LOVE ONE, IVLUEN</h1>
     
     <div class="img-container">
         <div id="message-top">You have the most benevolent heart. even you‘re super tired. you still choose to be benevolent</div>
